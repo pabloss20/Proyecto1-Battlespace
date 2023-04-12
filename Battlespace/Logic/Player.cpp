@@ -2,6 +2,8 @@
 #include <iostream>
 #include "../Headers/Player.h"
 
+unsigned Player::players = 0;
+
 enum controls {up = 73, down = 74, shoot = 58};
 
 Player::Player(Texture *texture, int up, int down, int shoot)
@@ -16,6 +18,10 @@ Player::Player(Texture *texture, int up, int down, int shoot)
     this->controls[controls::up] = up;
     this->controls[controls::down] = down;
     this->controls[controls::shoot] = shoot;
+
+    this->player_num = Player::players;
+    Player::players++;
+    std::cout << this->player_num << std::endl;
 }
 
 Player::~Player()
@@ -36,11 +42,11 @@ void Player::update()
 void Player::move_up()
 {
     if (Keyboard::isKeyPressed(Keyboard::Key(this->controls[controls::up] = up)))
-        std::cout << "Up" << std::endl;
+        this->sprite.move(0.f, -10.f);
     if (Keyboard::isKeyPressed(Keyboard::Key(this->controls[controls::down] = down)))
-        std::cout << "Down" << std::endl;
+        this->sprite.move(0.f, 10.f);
     if (Keyboard::isKeyPressed(Keyboard::Key(this->controls[controls::shoot] = shoot)))
-        std::cout << "Shoot" << std::endl;
+    {}
 }
 
 void Player::move_down()

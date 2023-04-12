@@ -11,11 +11,13 @@ Game::Game(RenderWindow *window)
 
     // Init player
     player = new Player(&this->player_texture);
+    player2 = new Player(&this->player_texture);
 }
 
 Game::~Game()
 {
     delete player;
+    delete player2;
 }
 
 void Game::update()

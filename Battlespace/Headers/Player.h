@@ -22,6 +22,8 @@ public:
     void move_up();
     void move_down();
 
+    static unsigned players;
+
 private:
 
     Sprite sprite;
@@ -41,6 +43,8 @@ private:
     int damage_max;
 
     int controls[3];
+
+    unsigned player_num;
 };
 
 #endif //BATTLESPACE_PLAYER_H
