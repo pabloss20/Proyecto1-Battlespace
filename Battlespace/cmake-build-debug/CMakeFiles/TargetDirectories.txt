@@ -1,0 +1,3 @@
+/home/pablo/Documents/GitHub/Proyecto1-DatosII/Battlespace/cmake-build-debug/CMakeFiles/Battlespace.dir
+/home/pablo/Documents/GitHub/Proyecto1-DatosII/Battlespace/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/pablo/Documents/GitHub/Proyecto1-DatosII/Battlespace/cmake-build-debug/CMakeFiles/rebuild_cache.dir
