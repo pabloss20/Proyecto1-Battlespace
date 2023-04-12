@@ -6,6 +6,8 @@ int main()
     RenderWindow window(VideoMode(1500, 1000), "Battlespace", Style::Default);
     window.setFramerateLimit(60);
 
+    Game game(&window);
+
     // run the program as long as the window is open
     while (window.isOpen())
     {
@@ -19,6 +21,9 @@ int main()
             if (event.type == Event::KeyPressed && event.key.code == Keyboard::Escape)
                 window.close();
         }
+
+        game.update();
+        game.draw();
     }
 
     return 0;

@@ -13,15 +13,18 @@ class Player
 {
 public:
 
-    Player();
+    Player(Texture *texture, int up = 73, int down = 74, int shoot = 58);
     virtual ~Player();
 
-    void draw();
+    void draw(RenderTarget &target);
     void update();
+
+    void move_up();
+    void move_down();
 
 private:
 
-    Sprite shape;
+    Sprite sprite;
     RectangleShape hit_box;
     Texture *texture;
 
@@ -36,6 +39,8 @@ private:
 
     int damage;
     int damage_max;
+
+    int controls[3];
 };
 
 #endif //BATTLESPACE_PLAYER_H

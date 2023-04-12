@@ -26,6 +26,8 @@ public:
 private:
 
     RenderWindow *window;
+    Player *player;
+    Texture player_texture;
 };
 
 #endif //BATTLESPACE_GAME_H
