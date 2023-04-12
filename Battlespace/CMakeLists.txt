@@ -5,6 +5,6 @@ set(CMAKE_CXX_STANDARD 17)
 
 find_package(SFML 2.5 COMPONENTS graphics audio)
 
-add_executable(Battlespace main.cpp)
+add_executable(Battlespace main.cpp Headers/Game.h Logic/Game.cpp)
 
 target_link_libraries(Battlespace sfml-graphics sfml-audio)

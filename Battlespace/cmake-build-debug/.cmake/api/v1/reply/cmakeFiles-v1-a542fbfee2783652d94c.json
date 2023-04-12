@@ -145,8 +145,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/pablo/Documents/GitHub/Proyecto1-DatosII/Battlespace/cmake-build-debug",
-		"source" : "/home/pablo/Documents/GitHub/Proyecto1-DatosII/Battlespace"
+		"build" : "/home/pablo/Documents/GitHub/Proyecto1-DatosII/Proyecto1-Battlespace/Battlespace/cmake-build-debug",
+		"source" : "/home/pablo/Documents/GitHub/Proyecto1-DatosII/Proyecto1-Battlespace/Battlespace"
 	},
 	"version" : 
 	{

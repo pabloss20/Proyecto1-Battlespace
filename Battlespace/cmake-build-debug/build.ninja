@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /home/pablo/Documents/GitHub/Proyecto1-DatosII/Battlespace/cmake-build-debug/
+cmake_ninja_workdir = /home/pablo/Documents/GitHub/Proyecto1-DatosII/Proyecto1-Battlespace/Battlespace/cmake-build-debug/
 # =============================================================================
 # Object build statements for EXECUTABLE target Battlespace
 
@@ -49,11 +49,17 @@ cmake_ninja_workdir = /home/pablo/Documents/GitHub/Proyecto1-DatosII/Battlespace
 
 build cmake_object_order_depends_target_Battlespace: phony || CMakeFiles/Battlespace.dir
 
-build CMakeFiles/Battlespace.dir/main.cpp.o: CXX_COMPILER__Battlespace_Debug /home/pablo/Documents/GitHub/Proyecto1-DatosII/Battlespace/main.cpp || cmake_object_order_depends_target_Battlespace
+build CMakeFiles/Battlespace.dir/main.cpp.o: CXX_COMPILER__Battlespace_Debug /home/pablo/Documents/GitHub/Proyecto1-DatosII/Proyecto1-Battlespace/Battlespace/main.cpp || cmake_object_order_depends_target_Battlespace
   DEP_FILE = CMakeFiles/Battlespace.dir/main.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/Battlespace.dir
   OBJECT_FILE_DIR = CMakeFiles/Battlespace.dir
+
+build CMakeFiles/Battlespace.dir/Logic/Game.cpp.o: CXX_COMPILER__Battlespace_Debug /home/pablo/Documents/GitHub/Proyecto1-DatosII/Proyecto1-Battlespace/Battlespace/Logic/Game.cpp || cmake_object_order_depends_target_Battlespace
+  DEP_FILE = CMakeFiles/Battlespace.dir/Logic/Game.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/Battlespace.dir
+  OBJECT_FILE_DIR = CMakeFiles/Battlespace.dir/Logic
 
 
 # =============================================================================
@@ -63,7 +69,7 @@ build CMakeFiles/Battlespace.dir/main.cpp.o: CXX_COMPILER__Battlespace_Debug /ho
 #############################################
 # Link the executable Battlespace
 
-build Battlespace: CXX_EXECUTABLE_LINKER__Battlespace_Debug CMakeFiles/Battlespace.dir/main.cpp.o | /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-audio.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
+build Battlespace: CXX_EXECUTABLE_LINKER__Battlespace_Debug CMakeFiles/Battlespace.dir/main.cpp.o CMakeFiles/Battlespace.dir/Logic/Game.cpp.o | /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-audio.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
   FLAGS = -g
   LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1  /usr/lib/x86_64-linux-gnu/libsfml-audio.so.2.5.1  /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1  /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
   OBJECT_DIR = CMakeFiles/Battlespace.dir
@@ -77,7 +83,7 @@ build Battlespace: CXX_EXECUTABLE_LINKER__Battlespace_Debug CMakeFiles/Battlespa
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/pablo/Documents/GitHub/Proyecto1-DatosII/Battlespace/cmake-build-debug && /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/pablo/Documents/GitHub/Proyecto1-DatosII/Proyecto1-Battlespace/Battlespace/cmake-build-debug && /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -88,7 +94,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/pablo/Documents/GitHub/Proyecto1-DatosII/Battlespace/cmake-build-debug && /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/pablo/Documents/GitHub/Proyecto1-DatosII/Battlespace -B/home/pablo/Documents/GitHub/Proyecto1-DatosII/Battlespace/cmake-build-debug
+  COMMAND = cd /home/pablo/Documents/GitHub/Proyecto1-DatosII/Proyecto1-Battlespace/Battlespace/cmake-build-debug && /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/pablo/Documents/GitHub/Proyecto1-DatosII/Proyecto1-Battlespace/Battlespace -B/home/pablo/Documents/GitHub/Proyecto1-DatosII/Proyecto1-Battlespace/Battlespace/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -104,7 +110,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 
 #############################################
-# Folder: /home/pablo/Documents/GitHub/Proyecto1-DatosII/Battlespace/cmake-build-debug
+# Folder: /home/pablo/Documents/GitHub/Proyecto1-DatosII/Proyecto1-Battlespace/Battlespace/cmake-build-debug
 
 build all: phony Battlespace
 
@@ -115,14 +121,14 @@ build all: phony Battlespace
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/pablo/Documents/GitHub/Proyecto1-DatosII/Battlespace/CMakeLists.txt /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCInformation.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/GNU-C.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/GNU.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux-GNU-C.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux-GNU-CXX.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux-GNU.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/UnixPaths.cmake /usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfig.cmake /usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigDependencies.cmake /usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigVersion.cmake /usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets.cmake CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/pablo/Documents/GitHub/Proyecto1-DatosII/Proyecto1-Battlespace/Battlespace/CMakeLists.txt /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCInformation.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/GNU-C.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/GNU.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux-GNU-C.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux-GNU-CXX.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux-GNU.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/UnixPaths.cmake /usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfig.cmake /usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigDependencies.cmake /usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigVersion.cmake /usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets.cmake CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/pablo/Documents/GitHub/Proyecto1-DatosII/Battlespace/CMakeLists.txt /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCInformation.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/GNU-C.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/GNU.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux-GNU-C.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux-GNU-CXX.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux-GNU.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/UnixPaths.cmake /usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfig.cmake /usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigDependencies.cmake /usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigVersion.cmake /usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets.cmake CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake: phony
+build /home/pablo/Documents/GitHub/Proyecto1-DatosII/Proyecto1-Battlespace/Battlespace/CMakeLists.txt /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCInformation.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/GNU-C.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Compiler/GNU.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux-GNU-C.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux-GNU-CXX.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux-GNU.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/Linux.cmake /opt/CLion/CLion-2022.3.3/clion-2022.3.3/bin/cmake/linux/x64/share/cmake-3.24/Modules/Platform/UnixPaths.cmake /usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfig.cmake /usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigDependencies.cmake /usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigVersion.cmake /usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets.cmake CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake: phony
 
 
 #############################################
