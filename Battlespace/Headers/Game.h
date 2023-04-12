@@ -2,10 +2,8 @@
 #ifndef BATTLESPACE_GAME_H
 #define BATTLESPACE_GAME_H
 
-#include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
-//#include <SFML/System.hpp>
-//#include <SFML/Audio.hpp>
+// Classes
+#include "../Headers/Player.h"
 
 using namespace sf;
 
