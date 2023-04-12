@@ -2,18 +2,13 @@
 #ifndef BATTLESPACE_PLAYER_H
 #define BATTLESPACE_PLAYER_H
 
-#include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
-//#include <SFML/System.hpp>
-//#include <SFML/Audio.hpp>
-
-using namespace sf;
+#include "../Headers/Bullet.h"
 
 class Player
 {
 public:
 
-    Player(Texture *texture, int up = 73, int down = 74, int shoot = 58);
+    Player(Texture *texture, Texture *bullet, int up = 73, int down = 74, int shoot = 58);
     virtual ~Player();
 
     void draw(RenderTarget &target);
@@ -45,6 +40,9 @@ private:
     int controls[3];
 
     unsigned player_num;
+
+    Texture *bullet;
+    std::vector<Bullet> bullets;
 };
 
 #endif //BATTLESPACE_PLAYER_H

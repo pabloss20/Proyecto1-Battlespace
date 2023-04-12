@@ -8,16 +8,15 @@ Game::Game(RenderWindow *window)
 
     // Init texture
     player_texture.loadFromFile("../Assets/player.png");
+    bullet_texture.loadFromFile("../Assets/bullet.png");
 
     // Init player
-    player = new Player(&this->player_texture);
-    player2 = new Player(&this->player_texture);
+    player = new Player(&this->player_texture, &bullet_texture);
 }
 
 Game::~Game()
 {
     delete player;
-    delete player2;
 }
 
 void Game::update()

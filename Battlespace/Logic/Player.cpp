@@ -6,13 +6,14 @@ unsigned Player::players = 0;
 
 enum controls {up = 73, down = 74, shoot = 58};
 
-Player::Player(Texture *texture, int up, int down, int shoot)
+Player::Player(Texture *texture, Texture *bullet, int up, int down, int shoot)
 
         :level(1), exp(0), exp_next(100),
          hp(5), hp_max(5), damage(1),
          damage_max(2), score(0)
 {
     this->texture = texture;
+    this->bullet = bullet;
     this->sprite.setTexture(*this->texture);
 
     this->controls[controls::up] = up;
@@ -32,24 +33,36 @@ Player::~Player()
 void Player::draw(RenderTarget &target)
 {
     target.draw(this->sprite);
+
+    for (size_t i = 0; i < this->bullets.size(); i++)
+    {
+        this->bullets[i].draw(target);
+    }
 }
 
 void Player::update()
 {
     this->move_up();
+    this->move_down();
+
+    for (size_t i = 0; i < this->bullets.size(); i++)
+    {
+        this->bullets[i].update();
+    }
 }
 
 void Player::move_up()
 {
     if (Keyboard::isKeyPressed(Keyboard::Key(this->controls[controls::up] = up)))
         this->sprite.move(0.f, -10.f);
-    if (Keyboard::isKeyPressed(Keyboard::Key(this->controls[controls::down] = down)))
-        this->sprite.move(0.f, 10.f);
     if (Keyboard::isKeyPressed(Keyboard::Key(this->controls[controls::shoot] = shoot)))
-    {}
+    {
+        this->bullets.push_back(Bullet(bullet, this->sprite.getPosition()));
+    }
 }
 
 void Player::move_down()
 {
-
+    if (Keyboard::isKeyPressed(Keyboard::Key(this->controls[controls::down] = down)))
+        this->sprite.move(0.f, 10.f);
 }
