@@ -15,7 +15,6 @@ class Menu
 public:
 
     Menu(float width, float height);
-    ~Menu();
 
     void draw(RenderWindow& window);
     void move_up();

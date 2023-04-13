@@ -8,7 +8,7 @@ Menu::Menu(float width, float height)
     // Easy
     menu[0].setFont(font);
     menu[0].setFillColor(Color::White);
-    menu[0].setString("Easey");
+    menu[0].setString("Easy");
     menu[0].setCharacterSize(60);
     menu[0].setPosition(700, 400);
 
@@ -58,7 +58,7 @@ void Menu::move_up()
 
 void Menu::move_down()
 {
-    if (menu_selected + 1 <= 0)
+    if (menu_selected + 1 < max_menu)
     {
         menu[menu_selected].setFillColor(Color::White);
 
