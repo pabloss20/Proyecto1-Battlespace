@@ -73,6 +73,12 @@ build CMakeFiles/Battlespace.dir/Logic/Bullet.cpp.o: CXX_COMPILER__Battlespace_D
   OBJECT_DIR = CMakeFiles/Battlespace.dir
   OBJECT_FILE_DIR = CMakeFiles/Battlespace.dir/Logic
 
+build CMakeFiles/Battlespace.dir/Logic/Menu.cpp.o: CXX_COMPILER__Battlespace_Debug /home/pablo/Documents/GitHub/Proyecto1-DatosII/Proyecto1-Battlespace/Battlespace/Logic/Menu.cpp || cmake_object_order_depends_target_Battlespace
+  DEP_FILE = CMakeFiles/Battlespace.dir/Logic/Menu.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/Battlespace.dir
+  OBJECT_FILE_DIR = CMakeFiles/Battlespace.dir/Logic
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Battlespace
@@ -81,7 +87,7 @@ build CMakeFiles/Battlespace.dir/Logic/Bullet.cpp.o: CXX_COMPILER__Battlespace_D
 #############################################
 # Link the executable Battlespace
 
-build Battlespace: CXX_EXECUTABLE_LINKER__Battlespace_Debug CMakeFiles/Battlespace.dir/main.cpp.o CMakeFiles/Battlespace.dir/Logic/Game.cpp.o CMakeFiles/Battlespace.dir/Logic/Player.cpp.o CMakeFiles/Battlespace.dir/Logic/Bullet.cpp.o | /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-audio.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
+build Battlespace: CXX_EXECUTABLE_LINKER__Battlespace_Debug CMakeFiles/Battlespace.dir/main.cpp.o CMakeFiles/Battlespace.dir/Logic/Game.cpp.o CMakeFiles/Battlespace.dir/Logic/Player.cpp.o CMakeFiles/Battlespace.dir/Logic/Bullet.cpp.o CMakeFiles/Battlespace.dir/Logic/Menu.cpp.o | /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-audio.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
   FLAGS = -g
   LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1  /usr/lib/x86_64-linux-gnu/libsfml-audio.so.2.5.1  /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1  /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
   OBJECT_DIR = CMakeFiles/Battlespace.dir
