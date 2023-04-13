@@ -4,9 +4,9 @@
 
 unsigned Player::players = 0;
 
-enum controls {up = 73, down = 74, shoot = 58};
+enum controls {up = 73, down = 74, shootx = 58};
 
-Player::Player(Texture *texture, Texture *bullet, int up, int down, int shoot)
+Player::Player(Texture *texture, Texture *bullet, int up, int down, int shootx)
 
         :level(1), exp(0), exp_next(100),
          hp(5), hp_max(5), damage(1),
@@ -18,7 +18,13 @@ Player::Player(Texture *texture, Texture *bullet, int up, int down, int shoot)
 
     this->controls[controls::up] = up;
     this->controls[controls::down] = down;
-    this->controls[controls::shoot] = shoot;
+    this->controls[controls::shootx] = shootx;
+
+    this->shoot_timer_max = 25;
+    this->shoot_timer = this->shoot_timer_max;
+
+    this->damage_timer_max = 10;
+    this->damage_timer = this->damage_timer_max;
 
     this->player_num = Player::players;
     Player::players++;
@@ -40,14 +46,22 @@ void Player::draw(RenderTarget &target)
     }
 }
 
-void Player::update()
+void Player::update(Vector2u window_bound)
 {
     this->move_up();
     this->move_down();
+    this->shoot();
 
     for (size_t i = 0; i < this->bullets.size(); i++)
     {
         this->bullets[i].update();
+
+        if (bullets[i].getPosition().x > window_bound.x)
+        {
+            // erase the bullet
+            bullets.erase(bullets.begin() + i);
+            break;
+        }
     }
 }
 
@@ -55,14 +69,18 @@ void Player::move_up()
 {
     if (Keyboard::isKeyPressed(Keyboard::Key(this->controls[controls::up] = up)))
         this->sprite.move(0.f, -10.f);
-    if (Keyboard::isKeyPressed(Keyboard::Key(this->controls[controls::shoot] = shoot)))
-    {
-        this->bullets.push_back(Bullet(bullet, this->sprite.getPosition()));
-    }
 }
 
 void Player::move_down()
 {
     if (Keyboard::isKeyPressed(Keyboard::Key(this->controls[controls::down] = down)))
         this->sprite.move(0.f, 10.f);
+}
+
+void Player::shoot()
+{
+    if (Keyboard::isKeyPressed(Keyboard::Key(this->controls[controls::shootx] = shootx)))
+    {
+        this->bullets.push_back(Bullet(bullet, this->sprite.getPosition()));
+    }
 }

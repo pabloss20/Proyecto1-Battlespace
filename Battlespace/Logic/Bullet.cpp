@@ -5,8 +5,9 @@ Bullet::Bullet(Texture *texture, Vector2f position, Vector2f max_velocity)
 {
     this->texture = texture;
     this->sprite.setTexture(*this->texture);
-
     this->max_velocity = max_velocity;
+
+    this->sprite.setPosition(position);
 }
 
 Bullet::~Bullet()

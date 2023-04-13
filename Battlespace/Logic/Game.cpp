@@ -21,7 +21,7 @@ Game::~Game()
 
 void Game::update()
 {
-    player->update();
+    player->update(this->window->getSize());
 }
 
 void Game::draw()

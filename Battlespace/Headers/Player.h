@@ -12,10 +12,11 @@ public:
     virtual ~Player();
 
     void draw(RenderTarget &target);
-    void update();
+    void update(Vector2u window_bounds);
 
     void move_up();
     void move_down();
+    void shoot();
 
     static unsigned players;
 
@@ -43,6 +44,11 @@ private:
 
     Texture *bullet;
     std::vector<Bullet> bullets;
+
+    int shoot_timer;
+    int shoot_timer_max;
+    int damage_timer;
+    int damage_timer_max;
 };
 
 #endif //BATTLESPACE_PLAYER_H
