@@ -20,7 +20,7 @@ Player::Player(Texture *texture, Texture *bullet, int up, int down, int shootx)
     this->controls[controls::down] = down;
     this->controls[controls::shootx] = shootx;
 
-    this->shoot_timer_max = 25;
+    this->shoot_timer_max = 15;
     this->shoot_timer = this->shoot_timer_max;
 
     this->damage_timer_max = 10;
@@ -52,17 +52,10 @@ void Player::update(Vector2u window_bound)
     this->move_down();
     this->shoot();
 
-    for (size_t i = 0; i < this->bullets.size(); i++)
-    {
-        this->bullets[i].update();
+    // update timers
+    if (this->shoot_timer < this->shoot_timer_max) this->shoot_timer++;
+    if (this->damage_timer < this->damage_timer_max) this->damage_timer++;
 
-        if (bullets[i].getPosition().x > window_bound.x)
-        {
-            // erase the bullet
-            bullets.erase(bullets.begin() + i);
-            break;
-        }
-    }
 }
 
 void Player::move_up()
@@ -79,8 +72,11 @@ void Player::move_down()
 
 void Player::shoot()
 {
-    if (Keyboard::isKeyPressed(Keyboard::Key(this->controls[controls::shootx] = shootx)))
+    if (Keyboard::isKeyPressed(Keyboard::Key(this->controls[controls::shootx] = shootx)) && this->shoot_timer >= shoot_timer_max)
     {
         this->bullets.push_back(Bullet(bullet, this->sprite.getPosition()));
+
+        // reset timer
+        this->shoot_timer = 0;
     }
 }

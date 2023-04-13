@@ -17,6 +17,7 @@ public:
 
     void update();
     void draw();
+    void combat_update();
 
     // Accesors
     inline RenderWindow& getWindow() {return *this->window;}

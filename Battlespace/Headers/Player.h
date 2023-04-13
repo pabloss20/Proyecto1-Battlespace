@@ -20,6 +20,9 @@ public:
 
     static unsigned players;
 
+    // Accessors
+    inline std::vector<Bullet>& getBullets(){return this->bullets;}
+
 private:
 
     Sprite sprite;
