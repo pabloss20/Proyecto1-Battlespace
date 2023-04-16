@@ -8,25 +8,26 @@
 using namespace std;
 using namespace sf;
 
-#define max_menu 4
-
 class Menu
 {
 public:
 
     Menu(float width, float height);
+    ~Menu();
 
     void draw(RenderWindow& window);
     void move_up();
     void move_down();
 
-    int menu_pressed(){ return menu_selected; }
+    void setSelected(int option);
+    int menu_pressed(){ return option; }
+
+    Text options[4];
 
 private:
 
-    int menu_selected;
+    int option;
     Font font;
-    Text menu[max_menu];
 };
 
 #endif //BATTLESPACE_MENU_H

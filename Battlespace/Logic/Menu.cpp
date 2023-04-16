@@ -6,66 +6,64 @@ Menu::Menu(float width, float height)
     if (!font.loadFromFile("../Assets/font.otf")) cout << "NO FONT IS HERE";
 
     // Easy
-    menu[0].setFont(font);
-    menu[0].setFillColor(Color::White);
-    menu[0].setString("Easy");
-    menu[0].setCharacterSize(60);
-    menu[0].setPosition(700, 400);
+    options[0].setFont(font);
+    options[0].setFillColor(Color::White);
+    options[0].setString("Easy");
+    options[0].setCharacterSize(60);
+    options[0].setPosition(Vector2f(width / 2, height / (4)));
 
     // Normal
-    menu[1].setFont(font);
-    menu[1].setFillColor(Color::White);
-    menu[1].setString("Normal");
-    menu[1].setCharacterSize(60);
-    menu[1].setPosition(700, 500);
+    options[1].setFont(font);
+    options[1].setFillColor(Color::White);
+    options[1].setString("Normal");
+    options[1].setCharacterSize(60);
+    options[1].setPosition(Vector2f(width / 2, height / (4) + 200));
 
     // Expert
-    menu[2].setFont(font);
-    menu[2].setFillColor(Color::White);
-    menu[2].setString("Expert");
-    menu[2].setCharacterSize(60);
-    menu[2].setPosition(700, 600);
+    options[2].setFont(font);
+    options[2].setFillColor(Color::White);
+    options[2].setString("Expert");
+    options[2].setCharacterSize(60);
+    options[2].setPosition(Vector2f(width / 2, height / (4) + 400));
 
     //Quit
-    menu[3].setFont(font);
-    menu[3].setFillColor(Color::White);
-    menu[3].setString("Quit");
-    menu[3].setCharacterSize(60);
-    menu[3].setPosition(700, 700);
+    options[3].setFont(font);
+    options[3].setFillColor(Color::White);
+    options[3].setString("Quit");
+    options[3].setCharacterSize(60);
+    options[3].setPosition(Vector2f(width / 2, height / (4) + 600));
 
-    menu_selected = -1;
+    option = 0;
 }
 
-// Drawing menu
+Menu::~Menu() {}
+
+void Menu::setSelected(int optionx) {option = optionx;}
+
+// Drawing options
 void Menu::draw(RenderWindow &window)
 {
-    for (size_t i = 0; i < max_menu; ++i) {window.draw(menu[i]);}
+    for (int i = 0; i < 4; ++i) {window.draw(options[i]);}
 }
 
 void Menu::move_up()
 {
-    if (menu_selected - 1 >= 0)
-    {
-        menu[menu_selected].setFillColor(Color::White);
+    if (option - 1 >= -1) {
+        options[option].setFillColor(Color::White);
+        option--;
 
-        menu_selected--;
+        if (option == -1) { option = 3; }
 
-        if (menu_selected == -1) { menu_selected = 2; }
-
-        menu[menu_selected].setFillColor(Color::Yellow);
+        options[option].setFillColor(Color::Yellow);
     }
 }
 
 void Menu::move_down()
 {
-    if (menu_selected + 1 < max_menu)
-    {
-        menu[menu_selected].setFillColor(Color::White);
+    if (option + 1 <= 4){ options[option].setFillColor(Color::White); option++;
 
-        menu_selected++;
+        if (option == 4){ option = 0;}
 
-        if (menu_selected == -1) {menu_selected = 4;}
-
-        menu[menu_selected].setFillColor(Color::Yellow);
+        options[option].setFillColor(Color::Yellow);
     }
 }
