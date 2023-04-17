@@ -2,8 +2,6 @@
 #include <iostream>
 #include "../Headers/Player.h"
 
-unsigned Player::players = 0;
-
 enum controls {up = 73, down = 74, shootx = 58};
 
 Player::Player(Texture *texture, Texture *bullet, int up, int down, int shootx)
@@ -26,9 +24,6 @@ Player::Player(Texture *texture, Texture *bullet, int up, int down, int shootx)
     this->damage_timer_max = 10;
     this->damage_timer = this->damage_timer_max;
 
-    this->player_num = Player::players;
-    Player::players++;
-    std::cout << this->player_num << std::endl;
 }
 
 Player::~Player()

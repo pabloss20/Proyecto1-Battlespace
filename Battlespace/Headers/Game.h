@@ -7,7 +7,6 @@
 
 using namespace sf;
 
-#pragma once
 class Game
 {
 public:
