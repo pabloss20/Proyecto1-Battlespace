@@ -55,3 +55,33 @@ void EnemySpawner::print_enemy_list()
         aux = aux->next;
     }
 }
+
+void EnemySpawner::spawn_enemies(RenderTarget &target)
+{
+    Enemy* aux = head;
+
+    // Check for empty list.
+    if (head == NULL) {std::cout << "List empty" << std::endl; return;}
+
+    // Traverse the list.
+    while (aux != NULL)
+    {
+        aux->draw(target);
+        aux = aux->next;
+    }
+}
+
+void EnemySpawner::move_enemies()
+{
+    Enemy* aux = head;
+
+    // Check for empty list.
+    if (head == NULL) {std::cout << "List empty" << std::endl; return;}
+
+    // Traverse the list.
+    while (aux != NULL)
+    {
+        aux->move(aux->movement);
+        aux = aux->next;
+    }
+}
