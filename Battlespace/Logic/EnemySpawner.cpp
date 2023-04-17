@@ -20,3 +20,38 @@ void EnemySpawner::create_enemy(int limit)
         this->insert_enemy(&this->enemy_texture, i, xpos, ypos, health, idm);
     }
 }
+
+
+void EnemySpawner::insert_enemy(Texture *texture, int data, int x_pos, int y_pos, int health, int idm)
+{
+
+    Enemy *enemy = new Enemy(texture, data, x_pos, y_pos, health, idm);
+
+    if (head == NULL){head = enemy; return;}
+
+    Enemy *aux = head;
+
+    while (aux->next != NULL){aux = aux->next;}
+
+    aux->next = enemy;
+}
+
+void EnemySpawner::print_enemy_list()
+{
+    Enemy* aux = head;
+
+    // Check for empty list.
+    if (head == NULL) {std::cout << "List empty" << std::endl; return;}
+
+    // Traverse the list.
+    while (aux != NULL)
+    {
+        std::cout << aux->id << " ";
+        std::cout << aux->x_pos << " ";
+        std::cout << aux->y_pos << " ";
+        std::cout << aux->health << " ";
+        std::cout << aux << "\n";
+
+        aux = aux->next;
+    }
+}
