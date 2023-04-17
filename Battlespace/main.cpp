@@ -3,7 +3,11 @@
 
 int main() {
 
+    Vector2i center_window((VideoMode::getDesktopMode().width / 2 - 650), (VideoMode::getDesktopMode().height / 2));
     RenderWindow window(VideoMode(1500, 1000), "Battlespace", Style::Default);
+    window.setPosition(center_window);
+    window.setFramerateLimit(60);
+    window.setKeyRepeatEnabled(true);
 
     // Background
     RectangleShape bg;
@@ -12,21 +16,42 @@ int main() {
     texture.loadFromFile("../Assets/bg1.png");
     bg.setTexture(&texture);
 
-    Texture background;
+    // Buttons sprites
+    Texture texture_e;
+    texture_e.loadFromFile("../Assets/bsx.png");
+    Sprite sprite;
+    sprite.setPosition(500, 100);
+    sprite.setTexture(texture_e);
+
+    Vector2i cursor_pos = Mouse::getPosition();
+    // Buttons
+    //Button button;
+
 
     while (true)
     {
         while (window.isOpen())
         {
+
             Event event;
             while (window.pollEvent(event))
             {
                 if (event.type == Event::Closed) { window.close(); break;}
                 if (event.type == Event::KeyPressed) {if (event.key.code == Keyboard::Escape) { window.close(); break;}}
             }
+
             window.clear();
             window.draw(bg);
+            window.draw(sprite);
             window.display();
+
+            if (Mouse::isButtonPressed(Mouse::Left))
+            {
+                if (sprite.getGlobalBounds().contains(window.mapPixelToCoords(Mouse::getPosition(window))))
+                {
+
+                }
+            }
         }
         break;
     }

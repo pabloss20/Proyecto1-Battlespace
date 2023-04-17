@@ -50,6 +50,7 @@ void EnemySpawner::print_enemy_list()
         std::cout << aux->x_pos << " ";
         std::cout << aux->y_pos << " ";
         std::cout << aux->health << " ";
+        std::cout << aux->movement << " ";
         std::cout << aux << "\n";
 
         aux = aux->next;
