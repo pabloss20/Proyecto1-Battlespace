@@ -1,7 +1,9 @@
 # ninja log v5
 3	1021	1681740089425042581	CMakeFiles/Battlespace.dir/Logic/Game.cpp.o	da59e96df60d6890
-2	752	1681740089157082919	CMakeFiles/Battlespace.dir/main.cpp.o	5a0d255d03e5ce7e
+1	555	1681749841834451787	CMakeFiles/Battlespace.dir/main.cpp.o	5a0d255d03e5ce7e
 1	823	1681395151059803774	CMakeFiles/Battlespace.dir/Logic/Bullet.cpp.o	3e3272482d1af309
-1060	1305	1681740089708999833	Battlespace	876a41fe5b1ed86f
+3	681	1681749567203333628	CMakeFiles/Battlespace.dir/Logic/EnemySpawner.cpp.o	d95f6fbb70b2c98a
+556	707	1681749841986454028	Battlespace	5d4e4aa78da1a82d
+3	711	1681749567235350763	CMakeFiles/Battlespace.dir/Logic/Enemy.cpp.o	477147949b4dbec
 1	588	1681590477613897815	CMakeFiles/Battlespace.dir/Logic/Menu.cpp.o	3ef7417c3343ffa9
 3	1060	1681740089465036560	CMakeFiles/Battlespace.dir/Logic/Player.cpp.o	461fc9e3b7fef93a

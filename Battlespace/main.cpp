@@ -1,34 +1,36 @@
 
 #include "Headers/Game.h"
-#include "Headers/Menu.h"
 
 int main() {
 
     RenderWindow window(VideoMode(1500, 1000), "Battlespace", Style::Default);
-    Menu menu(1500, 1000);
+
+    // Background
+    RectangleShape bg;
+    bg.setSize(Vector2f(1500, 1000));
+    Texture texture;
+    texture.loadFromFile("../Assets/bg1.png");
+    bg.setTexture(&texture);
 
     Texture background;
 
-    while (true) {
-        while (window.isOpen()) {
+    while (true)
+    {
+        while (window.isOpen())
+        {
             Event event;
-
-            while (window.pollEvent(event)) {
-                if (event.type == Event::Closed) {
-                    window.close();
-                    break;
-                }
-
-                if (event.type == Event::KeyPressed) {
-                    if (event.key.code == Keyboard::Up) { menu.move_up(); }
-                    if (event.key.code == Keyboard::Down) { menu.move_down(); }
-                }
+            while (window.pollEvent(event))
+            {
+                if (event.type == Event::Closed) { window.close(); break;}
+                if (event.type == Event::KeyPressed) {if (event.key.code == Keyboard::Escape) { window.close(); break;}}
             }
             window.clear();
-            menu.draw(window);
+            window.draw(bg);
             window.display();
         }
+        break;
     }
+    return 0;
 }
     /*
     // Background
