@@ -8,8 +8,6 @@ int main()
     RenderWindow window(VideoMode(1500, 1000), "Battlespace", Style::Default);
     window.setPosition(center_window);
 
-    Game game(&window);
-
     // Background
     Texture background;
     Sprite background_sprite;
@@ -73,8 +71,12 @@ int main()
             {
 
                 // Call another window from Game class -> same that window
-                game.draw();
-                game.update();
+                Game game;
+                window.clear();
+                window.setActive(false);
+                window.setVisible(false);
+                game.start();
+                break;
 
             }
             if (normal_spr.getGlobalBounds().contains(window.mapPixelToCoords(Mouse::getPosition(window))))
@@ -95,6 +97,7 @@ int main()
         }
 
         window.clear();
+
         window.draw(background_sprite);
         window.draw(easy_spr);
         window.draw(normal_spr);
@@ -103,19 +106,9 @@ int main()
         window.draw(text_no);
         window.draw(text_ex);
 
-        /*
-        window.draw(sprite_ea);
-        window.draw(sprite_no);
-        window.draw(sprite_ex);
-        window.draw(sprite_qu);
-        window.draw(text_ea);
-        window.draw(text_no);
-        window.draw(text_ex);
-        window.draw(text_qu);
-        */
         window.display();
     }
-    return 0;
+    return EXIT_SUCCESS;
 }
 /*
     game.update();

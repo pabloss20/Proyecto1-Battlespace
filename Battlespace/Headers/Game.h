@@ -4,6 +4,7 @@
 
 // Classes
 #include "../Headers/Player.h"
+#include "EnemySpawner.h"
 
 using namespace sf;
 
@@ -11,21 +12,16 @@ class Game
 {
 public:
 
-    Game(RenderWindow *window);
-    virtual ~Game();
+    Game();
 
-    void update();
-    void draw();
+    void start();
+    void update(RenderWindow *window);
+    void draw(RenderWindow *window);
     void combat_update();
-
-    // Accesors
-    inline RenderWindow& getWindow() {return *this->window;}
-
-    // Setters
 
 private:
 
-    RenderWindow *window;
+    EnemySpawner *enemySpawner;
     Player *player;
     Texture player_texture;
     Texture bullet_texture;

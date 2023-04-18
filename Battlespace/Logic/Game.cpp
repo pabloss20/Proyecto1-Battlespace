@@ -1,10 +1,9 @@
 
+#include <iostream>
 #include "../Headers/Game.h"
 
-Game::Game(RenderWindow *window)
+Game::Game()
 {
-    this->window = window;
-    this->window->setFramerateLimit(60);
 
     // Init texture
     player_texture.loadFromFile("../Assets/player.png");
@@ -14,9 +13,35 @@ Game::Game(RenderWindow *window)
     player = new Player(&this->player_texture, &bullet_texture);
 }
 
-Game::~Game()
+void Game::start()
 {
-    delete player;
+    Vector2i center_window((VideoMode::getDesktopMode().width / 2 - 650), (VideoMode::getDesktopMode().height / 2));
+    RenderWindow window(VideoMode(1500, 1000), "Battlespace", Style::Default);
+    window.setPosition(center_window);
+
+    // Background
+    Texture background;
+    Sprite background_sprite;
+
+    if (!background.loadFromFile("../Assets/sky.jpg"))std::cout << "NOT IMAGE FOUND";
+
+    background_sprite.setTexture(background);
+
+    while (window.isOpen())
+    {
+        Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == Event::Closed) { window.close(); break;}
+            if (event.type == Event::KeyPressed) {if (event.key.code == Keyboard::Escape) { window.close(); break;}}
+        }
+
+        window.clear();
+        window.draw(background_sprite);
+        this->draw(&window);
+        this->update(&window);
+        window.display();
+    }
 }
 
 void Game::combat_update()
@@ -29,9 +54,9 @@ void Game::combat_update()
 
 }
 
-void Game::update()
+void Game::update(RenderWindow *window)
 {
-    player->update(this->window->getSize());
+    player->update(window->getSize());
 
     // Bullets update
     for (size_t i = 0; i < this->player->getBullets().size(); i++)
@@ -39,7 +64,7 @@ void Game::update()
         this->player->getBullets()[i].update();
 
         // Windows bounds check
-        if (this->player->getBullets()[i].getPosition().x > this->window->getSize().x)
+        if (this->player->getBullets()[i].getPosition().x > window->getSize().x)
         {
             // erase the bullet
             this->player->getBullets().erase(this->player->getBullets().begin());
@@ -50,11 +75,8 @@ void Game::update()
     }
 }
 
-void Game::draw()
+void Game::draw(RenderWindow *window)
 {
-    window->clear();
 
     player->draw(*window);
-
-    window->display();
 }

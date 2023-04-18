@@ -56,13 +56,13 @@ void Player::update(Vector2u window_bound)
 void Player::move_up()
 {
     if (Keyboard::isKeyPressed(Keyboard::Key(this->controls[controls::up] = up)))
-        this->sprite.move(0.f, -10.f);
+        this->sprite.move(0.f, -1.f);
 }
 
 void Player::move_down()
 {
     if (Keyboard::isKeyPressed(Keyboard::Key(this->controls[controls::down] = down)))
-        this->sprite.move(0.f, 10.f);
+        this->sprite.move(0.f, 1.f);
 }
 
 void Player::shoot()
