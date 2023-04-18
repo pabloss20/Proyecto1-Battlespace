@@ -2,7 +2,8 @@
 // Created by huevitoentorta on 05/04/23.
 //
 
-#include "arduinoHndlr.h"
+#include "../Headers/arduinoHndlr.h"
+
 arduinoHndlr ::arduinoHndlr(){
 }
 void arduinoHndlr::startHandler() {

@@ -33,8 +33,8 @@
 
 #pragma once
 
-#include "libserial/SerialPortConstants.h"
-#include "libserial/SerialStreamBuf.h"
+#include "../libserial/SerialPortConstants.h"
+#include "../libserial/SerialStreamBuf.h"
 
 #include <istream>
 #include <memory>

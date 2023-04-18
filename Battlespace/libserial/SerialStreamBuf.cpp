@@ -31,8 +31,8 @@
  * POSSIBILITY OF SUCH DAMAGE.                                                *
  *****************************************************************************/
 
-#include "libserial/SerialStreamBuf.h"
-#include "libserial/SerialPort.h"
+#include "../libserial/SerialStreamBuf.h"
+#include "../libserial/SerialPort.h"
 
 #include <cassert>
 #include <cstring>

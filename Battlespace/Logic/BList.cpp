@@ -2,7 +2,7 @@
 // Created by huevitoentorta on 13/04/23.
 //
 
-#include "BList.h"
+#include "../Headers/BList.h"
 
 void BList::insertFirst(void *pointer) {
     if(size != 0){ //si la lista ya tiene algo inserte de esta manera

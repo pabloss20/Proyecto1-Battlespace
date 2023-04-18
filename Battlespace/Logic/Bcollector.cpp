@@ -2,7 +2,7 @@
 // Created by huevitoentorta on 13/04/23.
 //
 
-#include "Bcollector.h"
+#include "../Headers/Bcollector.h"
 Bcollector* Bcollector::pointer= nullptr;
 /**constructor no tiene tipo de dato*/
 Bcollector::Bcollector(){ /**constructor de gcolector*/

@@ -1,8 +1,16 @@
 # ninja log v5
-3	1021	1681740089425042581	CMakeFiles/Battlespace.dir/Logic/Game.cpp.o	da59e96df60d6890
-2	1097	1681786116901891722	CMakeFiles/Battlespace.dir/main.cpp.o	5a0d255d03e5ce7e
-1	823	1681395151059803774	CMakeFiles/Battlespace.dir/Logic/Bullet.cpp.o	3e3272482d1af309
-2	615	1681766129543276758	CMakeFiles/Battlespace.dir/Logic/EnemySpawner.cpp.o	d95f6fbb70b2c98a
-1097	1327	1681786117129894753	Battlespace	53f928dceca0d66c
-3	711	1681749567235350763	CMakeFiles/Battlespace.dir/Logic/Enemy.cpp.o	477147949b4dbec
-3	1060	1681740089465036560	CMakeFiles/Battlespace.dir/Logic/Player.cpp.o	461fc9e3b7fef93a
+3	1064	1681801946312933878	CMakeFiles/Battlespace.dir/Logic/Game.cpp.o	da59e96df60d6890
+4	1054	1681802781026130535	CMakeFiles/Battlespace.dir/libserial/SerialStream.cpp.o	55667714682be1f3
+2	1284	1681801946532868570	CMakeFiles/Battlespace.dir/main.cpp.o	5a0d255d03e5ce7e
+3	1089	1681801946340925567	CMakeFiles/Battlespace.dir/Logic/Bullet.cpp.o	3e3272482d1af309
+3	1430	1681801003428425741	CMakeFiles/Battlespace.dir/Logic/EnemySpawner.cpp.o	d95f6fbb70b2c98a
+818	1093	1681803012343750394	Battlespace	e114e6a600dcfcb4
+3	1288	1681801003284416989	CMakeFiles/Battlespace.dir/Logic/Enemy.cpp.o	477147949b4dbec
+2	745	1681802780718134925	CMakeFiles/Battlespace.dir/Logic/arduinoHndlr.cpp.o	1e9448baabed42a4
+2	564	1681802780538137492	CMakeFiles/Battlespace.dir/Logic/BList.cpp.o	ef376b70a21050eb
+3	1152	1681801946400907755	CMakeFiles/Battlespace.dir/Logic/Player.cpp.o	461fc9e3b7fef93a
+4	491	1681801945741103983	CMakeFiles/Battlespace.dir/Logic/Bcollector.cpp.o	57995e5836b70a4d
+3	32	1681802780006145078	CMakeFiles/Battlespace.dir/Logic/Bnode.cpp.o	b22309cc34ed5b34
+3	1518	1681802781490123940	CMakeFiles/Battlespace.dir/libserial/SerialPort.cpp.o	6e91057ff0385be8
+32	1135	1681802781106129398	CMakeFiles/Battlespace.dir/libserial/SerialStreamBuf.cpp.o	806a000365896eb4
+1	818	1681803012071801304	CMakeFiles/Battlespace.dir/Logic/Lista.cpp.o	8c2cfacba599c748

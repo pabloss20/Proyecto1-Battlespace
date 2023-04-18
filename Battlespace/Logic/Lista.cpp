@@ -2,32 +2,35 @@
 // Created by huevitoentorta on 12/04/23.
 //
 
-#include "Lista.h"
+#include "../Headers/Lista.h"
+#include "../Headers/Bcollector.h"
+
+/*
 Lista::Lista() {
     size = 0;
 }
 void Lista::insertFirst() {
-    if(size != 0){ /**si el tamaño de la lista es diferente de 0*/
-        Bullet *newnode = new Bullet(); /**cree un nuevo nodo, sobrecargando la operacion new*/
+    if(size != 0){ /**si el tamaño de la lista es diferente de 0
+        Bullet *newnode = new Bullet(); //cree un nuevo nodo, sobrecargando la operacion new
         newnode->setNext(head); //el nodo siguiente es el head
         head = newnode;//cambia el head
         size++;
     }
-    else{ /**si no, cree un nuevo nodo y asigneselo al puntero head*/
+    else{ //si no, cree un nuevo nodo y asigneselo al puntero head
         this->head =new Bullet();
         this->last = head;
         size++;
     }
 }
 void Lista::insertLast(){
-    if(size != 0){ /**si el tamaño de la lista es diferente de 0*/
-        Bullet *newnode = new Bullet(); /**cree un nuevo nodo, sobrecargando la operacion new*/
+    if(size != 0){ //si el tamaño de la lista es diferente de 0
+        Bullet *newnode = new Bullet(); //cree un nuevo nodo, sobrecargando la operacion new
         last->setNext(newnode);
         last = newnode;
         size++;
         cout<<"se creo un nuevo bullet"<<endl;
     }
-    else{ /**si no, cree un nuevo nodo y asigneselo al puntero head*/
+    else{ //si no, cree un nuevo nodo y asigneselo al puntero head
         this->head =new Bullet();
         this->last = head;
         size++;
@@ -70,6 +73,7 @@ void Lista::printList() {
 void Lista::printCollector(){
     Bcollector::getInstance()->printList();
 }
+*/
 //me hace falta un metodo getFirst;
 //hace falta un metodo Use bullet, que retorne el bullet
 //y un metodo load bullet , que sea un metodo

@@ -7,8 +7,7 @@
 #include <iostream>
 #include <csignal>
 #include <unistd.h>
-#include "libserial/SerialStream.h"
-//#include <SDL2/SDL.h>
+#include "../libserial/SerialStream.h"
 using namespace LibSerial;
 using namespace std;
 

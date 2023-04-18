@@ -2,7 +2,7 @@
 // Created by huevitoentorta on 13/04/23.
 //
 
-#include "Bnode.h"
+#include "../Headers/Bnode.h"
 
 Bnode::Bnode(void *data) {
     this->data= data;
