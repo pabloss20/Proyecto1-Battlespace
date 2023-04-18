@@ -1,4 +1,5 @@
 
+#include <iostream>
 #include "Headers/Game.h"
 
 int main() {
@@ -17,21 +18,78 @@ int main() {
     bg.setTexture(&texture);
 
     // Buttons sprites
-    Texture texture_e;
-    texture_e.loadFromFile("../Assets/bsx.png");
-    Sprite sprite;
-    sprite.setPosition(500, 100);
-    sprite.setTexture(texture_e);
+    Texture texture_buttons;
+    texture_buttons.loadFromFile("../Assets/bsx.png");
 
-    Vector2i cursor_pos = Mouse::getPosition();
-    // Buttons
-    //Button button;
+    Sprite sprite_ea, sprite_no, sprite_ex, sprite_qu;
+    sprite_ea.setPosition(500, 50);
+    sprite_no.setPosition(500, 200);
+    sprite_ex.setPosition(500, 350);
+    sprite_qu.setPosition(500, 500);
 
+    sprite_ea.setTexture(texture_buttons);
+    sprite_no.setTexture(texture_buttons);
+    sprite_ex.setTexture(texture_buttons);
+    sprite_qu.setTexture(texture_buttons);
+
+    sprite_ea.setScale(200.f, 100.f);
+
+    // Text for buttons
+    Font font;
+    font.loadFromFile("../Assets/font.otf");
+
+    Text text_ea, text_no, text_ex, text_qu;
+    text_ea.setFont(font);
+    text_no.setFont(font);
+    text_ex.setFont(font);
+    text_qu.setFont(font);
+
+    text_ea.setFillColor(Color::Black);
+    text_no.setFillColor(Color::Black);
+    text_ex.setFillColor(Color::Black);
+    text_qu.setFillColor(Color::Black);
+
+    text_ea.setString("EASY");
+    text_no.setString("NORMAL");
+    text_ex.setString("EXPERT");
+    text_qu.setString("QUIT");
+
+    text_ea.setPosition(690, 275);
+    text_no.setPosition(690, 375);
+    text_ex.setPosition(690, 475);
+    text_qu.setPosition(690, 575);
 
     while (true)
     {
         while (window.isOpen())
         {
+
+            if (sprite_ea.getGlobalBounds().contains(window.mapPixelToCoords(Mouse::getPosition(window))))
+            {
+                if (Mouse::isButtonPressed(Mouse::Left))
+                {
+                    std::cout << "1";
+                }
+            }
+
+            if (Mouse::isButtonPressed(Mouse::Left))
+            {
+                if (sprite_no.getGlobalBounds().contains(window.mapPixelToCoords(Mouse::getPosition(window))))
+                {
+                    std::cout << "2" << "\n";
+                }
+                if (sprite_ex.getGlobalBounds().contains(window.mapPixelToCoords(Mouse::getPosition(window))))
+                {
+                    std::cout << "3" << "\n";
+                }
+                if (sprite_qu.getGlobalBounds().contains(window.mapPixelToCoords(Mouse::getPosition(window))))
+                {
+                    window.clear();
+                    window.close();
+                    break;
+
+                }
+            }
 
             Event event;
             while (window.pollEvent(event))
@@ -42,16 +100,15 @@ int main() {
 
             window.clear();
             window.draw(bg);
-            window.draw(sprite);
+            window.draw(sprite_ea);
+            window.draw(sprite_no);
+            window.draw(sprite_ex);
+            window.draw(sprite_qu);
+            window.draw(text_ea);
+            window.draw(text_no);
+            window.draw(text_ex);
+            window.draw(text_qu);
             window.display();
-
-            if (Mouse::isButtonPressed(Mouse::Left))
-            {
-                if (sprite.getGlobalBounds().contains(window.mapPixelToCoords(Mouse::getPosition(window))))
-                {
-
-                }
-            }
         }
         break;
     }
