@@ -4,10 +4,11 @@
 
 int main()
 {
-
     Vector2i center_window((VideoMode::getDesktopMode().width / 2 - 650), (VideoMode::getDesktopMode().height / 2));
     RenderWindow window(VideoMode(1500, 1000), "Battlespace", Style::Default);
     window.setPosition(center_window);
+
+    Game game(&window);
 
     // Background
     Texture background;
@@ -70,7 +71,11 @@ int main()
         {
             if (easy_spr.getGlobalBounds().contains(window.mapPixelToCoords(Mouse::getPosition(window))))
             {
-                text_ea.setFillColor(Color::Yellow);
+
+                // Call another window from Game class -> same that window
+                game.draw();
+                game.update();
+
             }
             if (normal_spr.getGlobalBounds().contains(window.mapPixelToCoords(Mouse::getPosition(window))))
             {
@@ -110,6 +115,7 @@ int main()
         */
         window.display();
     }
+    return 0;
 }
 /*
     game.update();
