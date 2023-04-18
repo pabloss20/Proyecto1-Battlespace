@@ -1,4 +1,4 @@
-# Install script for directory: /home/huevitoentorta/Documentos/C++/repoPablo/Proyecto1-Battlespace/Battlespace
+# Install script for directory: /home/pablo/Documents/GitHub/Proyecto1-DatosII/Proyecto1-Battlespace/Battlespace
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/huevitoentorta/Documentos/C++/repoPablo/Proyecto1-Battlespace/Battlespace/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/pablo/Documents/GitHub/Proyecto1-DatosII/Proyecto1-Battlespace/Battlespace/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

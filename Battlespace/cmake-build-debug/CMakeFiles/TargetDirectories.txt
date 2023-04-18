@@ -1,3 +1,3 @@
-/home/huevitoentorta/Documentos/C++/repoPablo/Proyecto1-Battlespace/Battlespace/cmake-build-debug/CMakeFiles/Battlespace.dir
-/home/huevitoentorta/Documentos/C++/repoPablo/Proyecto1-Battlespace/Battlespace/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/huevitoentorta/Documentos/C++/repoPablo/Proyecto1-Battlespace/Battlespace/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/pablo/Documents/GitHub/Proyecto1-DatosII/Proyecto1-Battlespace/Battlespace/cmake-build-debug/CMakeFiles/Battlespace.dir
+/home/pablo/Documents/GitHub/Proyecto1-DatosII/Proyecto1-Battlespace/Battlespace/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/pablo/Documents/GitHub/Proyecto1-DatosII/Proyecto1-Battlespace/Battlespace/cmake-build-debug/CMakeFiles/rebuild_cache.dir

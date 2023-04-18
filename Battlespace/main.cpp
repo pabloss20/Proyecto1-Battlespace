@@ -2,254 +2,117 @@
 #include <iostream>
 #include "Headers/Game.h"
 
-int main() {
+int main()
+{
 
     Vector2i center_window((VideoMode::getDesktopMode().width / 2 - 650), (VideoMode::getDesktopMode().height / 2));
     RenderWindow window(VideoMode(1500, 1000), "Battlespace", Style::Default);
     window.setPosition(center_window);
-    window.setFramerateLimit(60);
-    window.setKeyRepeatEnabled(true);
 
     // Background
-    RectangleShape bg;
-    bg.setSize(Vector2f(1500, 1000));
-    Texture texture;
-    texture.loadFromFile("../Assets/bg1.png");
-    bg.setTexture(&texture);
+    Texture background;
+    Sprite background_sprite;
 
-    // Buttons sprites
-    Texture texture_buttons;
-    texture_buttons.loadFromFile("../Assets/bsx.png");
+    if (!background.loadFromFile("../Assets/bg1.png"))std::cout << "NOT IMAGE FOUND";
 
-    Sprite sprite_ea, sprite_no, sprite_ex, sprite_qu;
-    sprite_ea.setPosition(500, 50);
-    sprite_no.setPosition(500, 200);
-    sprite_ex.setPosition(500, 350);
-    sprite_qu.setPosition(500, 500);
+    background_sprite.setTexture(background);
 
-    sprite_ea.setTexture(texture_buttons);
-    sprite_no.setTexture(texture_buttons);
-    sprite_ex.setTexture(texture_buttons);
-    sprite_qu.setTexture(texture_buttons);
-
-    sprite_ea.setScale(200.f, 100.f);
-
-    // Text for buttons
-    Font font;
-    font.loadFromFile("../Assets/font.otf");
-
-    Text text_ea, text_no, text_ex, text_qu;
-    text_ea.setFont(font);
-    text_no.setFont(font);
-    text_ex.setFont(font);
-    text_qu.setFont(font);
-
-    text_ea.setFillColor(Color::Black);
-    text_no.setFillColor(Color::Black);
-    text_ex.setFillColor(Color::Black);
-    text_qu.setFillColor(Color::Black);
-
-    text_ea.setString("EASY");
-    text_no.setString("NORMAL");
-    text_ex.setString("EXPERT");
-    text_qu.setString("QUIT");
-
-    text_ea.setPosition(690, 275);
-    text_no.setPosition(690, 375);
-    text_ex.setPosition(690, 475);
-    text_qu.setPosition(690, 575);
-
-    while (true)
-    {
-        while (window.isOpen())
-        {
-
-            if (sprite_ea.getGlobalBounds().contains(window.mapPixelToCoords(Mouse::getPosition(window))))
-            {
-                if (Mouse::isButtonPressed(Mouse::Left))
-                {
-                    std::cout << "1";
-                }
-            }
-
-            if (Mouse::isButtonPressed(Mouse::Left))
-            {
-                if (sprite_no.getGlobalBounds().contains(window.mapPixelToCoords(Mouse::getPosition(window))))
-                {
-                    std::cout << "2" << "\n";
-                }
-                if (sprite_ex.getGlobalBounds().contains(window.mapPixelToCoords(Mouse::getPosition(window))))
-                {
-                    std::cout << "3" << "\n";
-                }
-                if (sprite_qu.getGlobalBounds().contains(window.mapPixelToCoords(Mouse::getPosition(window))))
-                {
-                    window.clear();
-                    window.close();
-                    break;
-
-                }
-            }
-
-            Event event;
-            while (window.pollEvent(event))
-            {
-                if (event.type == Event::Closed) { window.close(); break;}
-                if (event.type == Event::KeyPressed) {if (event.key.code == Keyboard::Escape) { window.close(); break;}}
-            }
-
-            window.clear();
-            window.draw(bg);
-            window.draw(sprite_ea);
-            window.draw(sprite_no);
-            window.draw(sprite_ex);
-            window.draw(sprite_qu);
-            window.draw(text_ea);
-            window.draw(text_no);
-            window.draw(text_ex);
-            window.draw(text_qu);
-            window.display();
-        }
-        break;
-    }
-    return 0;
-}
-    /*
-    // Background
-    RectangleShape bg;
-    bg.setSize(Vector2f(1500, 1000));
-    Texture texture;
-    texture.loadFromFile("../Assets/bg1.png");
-    bg.setTexture(&texture);
-
-    //Menu menu(window.getSize().x, window.getSize().y);
-    Game game(&window);
-
-    // run the program as long as the window is open
     while (window.isOpen())
     {
-        // check all the window's events that were triggered since the last iteration of the loop
+
+        Font font_text;
+        if (!font_text.loadFromFile("../Assets/font.otf")) std::cout << "NOT FONT FOUND";
+
+        Texture easy_btn, normal_btn, expert_btn;
+        Sprite easy_spr, normal_spr, expert_spr;
+
+        if (!easy_btn.loadFromFile("../Assets/bsf.png")) std::cout << "NOT IMAGE FOUND";
+        if (!normal_btn.loadFromFile("../Assets/bsf.png")) std::cout << "NOT IMAGE FOUND";
+        if (!expert_btn.loadFromFile("../Assets/bsf.png")) std::cout << "NOT IMAGE FOUND";
+
+        easy_spr.setPosition(550.0f, 250.0f);
+        normal_spr.setPosition(550.0f, 400.0f);
+        expert_spr.setPosition(550.0f, 550.0f);
+
+        float easy_btn_width = easy_spr.getLocalBounds().width;
+        float easy_btn_height = easy_spr.getLocalBounds().height;
+        float normal_btn_width = normal_spr.getLocalBounds().width;
+        float normal_btn_height = normal_spr.getLocalBounds().height;
+        float expert_btn_width = expert_spr.getLocalBounds().width;
+        float expert_btn_height = expert_spr.getLocalBounds().height;
+
+        easy_spr.setTexture(easy_btn);
+        normal_spr.setTexture(normal_btn);
+        expert_spr.setTexture(expert_btn);
+
+        Text text_ea, text_no, text_ex;
+        text_ea.setFont(font_text);
+        text_no.setFont(font_text);
+        text_ex.setFont(font_text);
+
+        text_ea.setFillColor(Color::Black);
+        text_no.setFillColor(Color::Black);
+        text_ex.setFillColor(Color::Black);
+
+        text_ea.setStyle(Text::Bold);
+        text_no.setStyle(Text::Bold);
+        text_ex.setStyle(Text::Bold);
+
+        text_ea.setString("EASY");
+        text_no.setString("NORMAL");
+        text_ex.setString("EXPERT");
+
+        text_ea.setPosition(690.0f, 290.0f);
+        text_no.setPosition(690.0f, 440.0f);
+        text_ex.setPosition(690.0f, 590.0f);
+
+        if (Mouse::isButtonPressed(Mouse::Left))
+        {
+            if (easy_spr.getGlobalBounds().contains(window.mapPixelToCoords(Mouse::getPosition(window))))
+            {
+                text_ea.setFillColor(Color::Yellow);
+            }
+            if (normal_spr.getGlobalBounds().contains(window.mapPixelToCoords(Mouse::getPosition(window))))
+            {
+                text_no.setFillColor(Color::Yellow);
+            }
+            if (expert_spr.getGlobalBounds().contains(window.mapPixelToCoords(Mouse::getPosition(window))))
+            {
+                text_ex.setFillColor(Color::Yellow);
+            }
+        }
+
         Event event;
         while (window.pollEvent(event))
         {
-            // "close requested" event: we close the window
-            if (event.type == Event::Closed)
-                window.close();
-
-            if (event.type == Event::KeyPressed && event.key.code == Keyboard::Escape)
-                window.close();
-
-            if (event.type == Event::KeyReleased)
-            {
-                if (event.key.code == Keyboard::Up){
-                    //menu.move_up();
-                    break;
-                }
-                if (event.key.code == Keyboard::Down)
-                {
-                    //menu.move_down();
-                    break;
-                }
-                if (event.key.code == Keyboard::BackSpace)
-                {
-                    RenderWindow Easy(VideoMode(1500, 1000), "Battlespace - Game");
-                    RenderWindow Normal(VideoMode(1500, 1000), "Battlespace - Game");
-                    RenderWindow Expert(VideoMode(1500, 1000), "Battlespace - Game");
-                    RenderWindow Exit(VideoMode(1500, 1000), "Battlespace - Game");
-
-                    //int x = menu.menu_pressed();
-
-                    if (x == 0)
-                    {
-                        while (Easy.isOpen())
-                        {
-                            Event aevent;
-                            while (Easy.pollEvent(aevent))
-                            {
-                                if (aevent.type == Event::Closed)
-                                {
-                                    Easy.close();
-                                }
-                                if (aevent.type == Event::KeyPressed)
-                                {
-                                    if (aevent.key.code == Keyboard::Escape)
-                                    {
-                                        Easy.close();
-                                    }
-                                    if (aevent.key.code == Keyboard::Enter)
-                                    {
-
-                                        std::cout << "wef";
-                                        window.clear();
-                                        game.update();
-                                        game.draw();
-                                    }
-                                }
-                            }
-                            window.clear();
-                            Normal.close();
-                            Expert.close();
-                            Easy.clear();
-                            Easy.display();
-                        }
-                    }
-                    if (x == 1)
-                    {
-                        while (Normal.isOpen())
-                        {
-                            Event aevent;
-                            while (Normal.pollEvent(aevent))
-                            {
-                                if (aevent.type == Event::Closed)
-                                {
-                                    Normal.close();
-                                }
-                                if (aevent.type == Event::KeyPressed)
-                                {
-                                    if (aevent.key.code == Keyboard::Escape)
-                                    {
-                                        Normal.close();
-                                    }
-                                }
-                            }
-                            Easy.close();
-                            Expert.close();
-                            Normal.clear();
-                            Normal.display();
-                        }
-                    }
-                    if (x == 2)
-                    {
-                        while (Expert.isOpen())
-                        {
-                            Event aevent;
-                            while (Expert.pollEvent(aevent))
-                            {
-                                if (aevent.type == Event::Closed)
-                                {
-                                    Expert.close();
-                                }
-                                if (aevent.type == Event::KeyPressed)
-                                {
-                                    if (aevent.key.code == Keyboard::Escape)
-                                    {
-                                        Expert.close();
-                                    }
-                                }
-                            }
-                            Easy.close();
-                            Normal.close();
-                            Expert.clear();
-                            Expert.display();
-                        }
-                    }
-
-                    if (x == 3){window.close();}
-                }
-            }
+            if (event.type == Event::Closed) { window.close(); break;}
+            if (event.type == Event::KeyPressed) {if (event.key.code == Keyboard::Escape) { window.close(); break;}}
         }
 
-        game.update();
-        game.draw();
+        window.clear();
+        window.draw(background_sprite);
+        window.draw(easy_spr);
+        window.draw(normal_spr);
+        window.draw(expert_spr);
+        window.draw(text_ea);
+        window.draw(text_no);
+        window.draw(text_ex);
+
+        /*
+        window.draw(sprite_ea);
+        window.draw(sprite_no);
+        window.draw(sprite_ex);
+        window.draw(sprite_qu);
+        window.draw(text_ea);
+        window.draw(text_no);
+        window.draw(text_ex);
+        window.draw(text_qu);
+        */
+        window.display();
     }
-    */
+}
+/*
+    game.update();
+    game.draw();
+
+*/
