@@ -21,7 +21,7 @@ public:
 
 private:
 
-    EnemySpawner *enemySpawner;
+    EnemySpawner enemySpawner;
     Player *player;
     Texture player_texture;
     Texture bullet_texture;

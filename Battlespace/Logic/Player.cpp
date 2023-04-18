@@ -50,19 +50,18 @@ void Player::update(Vector2u window_bound)
     // update timers
     if (this->shoot_timer < this->shoot_timer_max) this->shoot_timer++;
     if (this->damage_timer < this->damage_timer_max) this->damage_timer++;
-
 }
 
 void Player::move_up()
 {
     if (Keyboard::isKeyPressed(Keyboard::Key(this->controls[controls::up] = up)))
-        this->sprite.move(0.f, -1.f);
+        this->sprite.move(0.f, -2.0f);
 }
 
 void Player::move_down()
 {
     if (Keyboard::isKeyPressed(Keyboard::Key(this->controls[controls::down] = down)))
-        this->sprite.move(0.f, 1.f);
+        this->sprite.move(0.f, 2.0f);
 }
 
 void Player::shoot()

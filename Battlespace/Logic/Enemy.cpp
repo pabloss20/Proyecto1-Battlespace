@@ -23,7 +23,7 @@ void Enemy::draw(RenderTarget &target)
 
 void Enemy::update(Vector2u window_bound){}
 
-void Enemy::move(int idm)
+void Enemy::move(int idm, RenderWindow *window)
 {
     switch (idm)
     {
@@ -31,8 +31,8 @@ void Enemy::move(int idm)
 
             while (this->getXpos() > -10)
             {
-                this->sprite.move(-10, 0);
-                this->setXpos(this->getXpos() - 10);
+                this->sprite.move(-3.f, 0.f);
+                this->setXpos(this->getXpos() - 10.f);
             }
             break;
 
@@ -46,12 +46,12 @@ void Enemy::move(int idm)
                     {
                         while (this->getYpos() < 901)
                         {
-                            this->sprite.move(-10, 10);
-                            this->setYpos(this->getYpos() + 10);
+                            this->sprite.move(-3.f, 3.f);
+                            this->setYpos(this->getYpos() + 3.f);
                         }
                     }
-                    this->sprite.move(-10, -10);
-                    this->setYpos(this->getYpos() - 10);
+                    this->sprite.move(-3.f, -3.f);
+                    this->setYpos(this->getYpos() - 3.f);
                 }
                 this->setXpos(this->getXpos() - 10);
             }

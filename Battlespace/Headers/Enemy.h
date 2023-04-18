@@ -29,7 +29,7 @@ public:
 
     void draw(RenderTarget &target);
     void update(Vector2u window_bounds);
-    void move(int);
+    void move(int, RenderWindow *window);
     void setXpos(int);
     int getXpos();
     void setYpos(int);

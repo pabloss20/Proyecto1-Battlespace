@@ -18,7 +18,7 @@ public:
     void delete_enemy(int);
     void print_enemy_list();
     void spawn_enemies(RenderTarget &target);
-    void move_enemies();
+    void move_enemies(RenderWindow *window);
 
     void update(Vector2u window_bounds);
 

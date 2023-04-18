@@ -11,6 +11,7 @@ Game::Game()
 
     // Init player
     player = new Player(&this->player_texture, &bullet_texture);
+    this->enemySpawner.create_enemy(10);
 }
 
 void Game::start()
@@ -36,10 +37,11 @@ void Game::start()
             if (event.type == Event::KeyPressed) {if (event.key.code == Keyboard::Escape) { window.close(); break;}}
         }
 
-        window.clear();
         window.draw(background_sprite);
         this->draw(&window);
         this->update(&window);
+        enemySpawner.spawn_enemies(window);
+        enemySpawner.move_enemies(&window);
         window.display();
     }
 }

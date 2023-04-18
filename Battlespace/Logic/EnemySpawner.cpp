@@ -3,10 +3,10 @@
 
 void EnemySpawner::create_enemy(int limit)
 {
+    enemy_texture.loadFromFile("../Assets/enemy.png");
+
     // Set value
     srand((unsigned) time(NULL));
-
-    enemy_texture.loadFromFile("../Assets/enemy.png");
 
     int xpos = 1475, ypos, health = 100, idm;
 
@@ -72,7 +72,7 @@ void EnemySpawner::spawn_enemies(RenderTarget &target)
     }
 }
 
-void EnemySpawner::move_enemies()
+void EnemySpawner::move_enemies(RenderWindow *window)
 {
     Enemy* aux = head;
 
@@ -82,7 +82,8 @@ void EnemySpawner::move_enemies()
     // Traverse the list.
     while (aux != NULL)
     {
-        aux->move(aux->movement);
+        aux->move(aux->movement, window);
+        window->display();
         aux = aux->next;
     }
 }
