@@ -1,7 +1,7 @@
 
 #include <iostream>
 #include "Headers/Game.h"
-
+#include "Headers/arduinoHndlr.h"
 int main()
 {
     Vector2i center_window((VideoMode::getDesktopMode().width / 2 - 650), (VideoMode::getDesktopMode().height / 2));
@@ -115,3 +115,45 @@ int main()
     game.draw();
 
 */
+/*
+CODIGO PRUEBA ENVIAR A ARDUINO
+constexpr const char* const SERIAL_PORT_1 = "/dev/ttyUSB0" ;
+SerialStream serial_stream ;
+try
+{
+// Open the Serial Port at the desired hardware port.
+serial_stream.Open(SERIAL_PORT_1) ;
+}
+catch (const OpenFailed&)
+{
+std::cerr << "The serial port did not open correctly." << std::endl ;
+return EXIT_FAILURE ;
+}
+// Set the baud rate of the serial port.
+serial_stream.SetBaudRate(BaudRate::BAUD_9600) ;
+// Set the number of data bits.
+serial_stream.SetCharacterSize(CharacterSize::CHAR_SIZE_8) ;
+// Turn off hardware flow control.
+serial_stream.SetFlowControl(FlowControl::FLOW_CONTROL_NONE) ;
+// Disable parity.
+serial_stream.SetParity(Parity::PARITY_NONE) ;
+// Set the number of stop bits.
+serial_stream.SetStopBits(StopBits::STOP_BITS_1) ;
+//CODIGO FUNCIONAL, PRIMER ARDUINO ENVIA A C++ PARA HACER LA COENXION
+//LUEGO DE ESO C++ PUEDE ENVIAR LO QUE QUIERA.
+while(serial_stream.rdbuf()->in_avail() == 0){
+usleep(2000);
+}
+while(serial_stream.IsDataAvailable()){
+char data_byte ;
+// Read a single byte of data from the serial port.
+serial_stream.get(data_byte) ;
+if(data_byte =='R') { //esto me esta jodiendo los numeros
+cout << "sistema listo" << endl;
+}
+}
+//probar hacer un flush si no sirve
+string numero ="el 8 es";
+serial_stream<<numero<<std::endl;
+serial_stream.DrainWriteBuffer();ACA TERMINA CODIGO PRUEBA ENVIAR ARDUINO*/
+
