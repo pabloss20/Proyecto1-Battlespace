@@ -34,43 +34,39 @@ Player::~Player()
 void Player::draw(RenderTarget &target)
 {
     target.draw(this->sprite);
-
-    for (size_t i = 0; i < this->bullets.size(); i++)
-    {
-        this->bullets[i].draw(target);
-    }
 }
 
-void Player::update(Vector2u window_bound)
+void Player::update(Vector2u window_bound, RenderTarget &target, int num)
 {
-    this->move_up();
-    this->move_down();
-    this->shoot();
+    this->move_up(target, num);
+    this->move_down(target, num);
 
     // update timers
     if (this->shoot_timer < this->shoot_timer_max) this->shoot_timer++;
     if (this->damage_timer < this->damage_timer_max) this->damage_timer++;
 }
 
-void Player::move_up()
+void Player::move_up(RenderTarget &target, int num)
 {
-    if (Keyboard::isKeyPressed(Keyboard::Key(this->controls[controls::up] = up)))
-        this->sprite.move(0.f, -2.0f);
+    if (num == 1)this->sprite.move(0.f, -20.f);
+    //this->shoot(target);
 }
 
-void Player::move_down()
+void Player::move_down(RenderTarget &target, int num)
 {
-    if (Keyboard::isKeyPressed(Keyboard::Key(this->controls[controls::down] = down)))
-        this->sprite.move(0.f, 2.0f);
+    if (num == 2){this->sprite.move(0.f, 20.f);}
+    //this->shoot(target);
 }
 
-void Player::shoot()
+Bullet * Player::shoot(RenderTarget &)
 {
-    if (Keyboard::isKeyPressed(Keyboard::Key(this->controls[controls::shootx] = shootx)) && this->shoot_timer >= shoot_timer_max)
+    if (this->shoot_timer >= shoot_timer_max)
     {
-        this->bullets.push_back(Bullet(bullet, this->sprite.getPosition()));
+        std::cout << "wk";
+        bulletp = new Bullet(bullet, this->sprite.getPosition());
 
-        // reset timer
         this->shoot_timer = 0;
     }
+
+    return bulletp;
 }

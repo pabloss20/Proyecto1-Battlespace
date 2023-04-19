@@ -12,11 +12,11 @@ public:
     virtual ~Player();
 
     void draw(RenderTarget &target);
-    void update(Vector2u window_bounds);
+    void update(Vector2u window_bounds, RenderTarget &target, int);
 
-    void move_up();
-    void move_down();
-    void shoot();
+    void move_up(RenderTarget &target, int);
+    void move_down(RenderTarget &target, int);
+    Bullet * shoot(RenderTarget &target);
 
     static unsigned players;
 
@@ -45,6 +45,7 @@ private:
 
     unsigned player_num;
 
+    Bullet *bulletp;
     Texture *bullet;
     std::vector<Bullet> bullets;
 

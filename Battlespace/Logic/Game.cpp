@@ -49,11 +49,27 @@ void Game::start()
         {
             if (event.type == Event::Closed) { window.close(); break;}
             if (event.type == Event::KeyPressed) {if (event.key.code == Keyboard::Escape) { window.close(); break;}}
+            if (event.type == Event::KeyPressed)
+            {
+                if (event.key.code == Keyboard::Up){
+
+                    this->update(&window, 1);
+                    this->player->shoot(window);
+
+                }
+                if (event.key.code == Keyboard::Down) {
+
+                    this->update(&window, 2);
+
+                    bullet = this->player->shoot(window);
+
+                    bullet->draw(window);
+                }
+            }
         }
 
         window.draw(background_sprite);
         this->draw(&window);
-        this->update(&window);
         //enemySpawner->spawn_enemies(window);
         //enemySpawner->move_enemies(&window);
         window.display();
@@ -70,25 +86,9 @@ void Game::combat_update()
 
 }
 
-void Game::update(RenderWindow *window)
+void Game::update(RenderWindow *window, int num)
 {
-    player->update(window->getSize());
-
-    // Bullets update
-    for (size_t i = 0; i < this->player->getBullets().size(); i++)
-    {
-        this->player->getBullets()[i].update();
-
-        // Windows bounds check
-        if (this->player->getBullets()[i].getPosition().x > window->getSize().x)
-        {
-            // erase the bullet
-            this->player->getBullets().erase(this->player->getBullets().begin());
-        }
-
-        // Enemy collisions check
-
-    }
+    player->update(window->getSize(), *window, num);
 }
 
 void Game::draw(RenderWindow *window)

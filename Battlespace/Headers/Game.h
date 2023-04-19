@@ -15,7 +15,7 @@ public:
     Game();
 
     void start();
-    void update(RenderWindow *window);
+    void update(RenderWindow *window, int);
     void draw(RenderWindow *window);
     void combat_update();
 
@@ -23,6 +23,7 @@ private:
 
     EnemySpawner *enemySpawner;
     Enemy *enemy;
+    Bullet *bullet;
     Player *player;
     Texture player_texture;
     Texture bullet_texture;
