@@ -11,6 +11,7 @@ class Bullet
 {
 public:
 
+    Bullet(){id = 0; next = NULL;}
     Bullet(Texture *texture, Vector2f position, Vector2f max_velocity = Vector2f (10.f, 0.f));
     virtual ~Bullet();
 
@@ -18,6 +19,13 @@ public:
     void draw(RenderTarget &target);
 
     void move();
+
+    int damage;
+    int id;
+    void setDamage(int);
+    int getDamage();
+
+    Bullet *next;
 
     // Accesors
     inline const FloatRect& getGlobalBounds() const {return this->sprite.getGlobalBounds();}

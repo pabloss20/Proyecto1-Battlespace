@@ -1,4 +1,5 @@
 
+#include <iostream>
 #include "../Headers/EnemySpawner.h"
 
 void EnemySpawner::create_enemy(int limit)
@@ -18,9 +19,9 @@ void EnemySpawner::create_enemy(int limit)
         ypos = 0 + (rand() % 900);
 
         this->insert_enemy(&this->enemy_texture, i, xpos, ypos, health, idm);
+        this->setSize(this->getSize() + 1);
     }
 }
-
 
 void EnemySpawner::insert_enemy(Texture *texture, int data, int x_pos, int y_pos, int health, int idm)
 {
@@ -36,12 +37,12 @@ void EnemySpawner::insert_enemy(Texture *texture, int data, int x_pos, int y_pos
     aux->next = enemy;
 }
 
-void EnemySpawner::print_enemy_list()
+Enemy * EnemySpawner::print_enemy_list()
 {
-    Enemy* aux = head;
+    Enemy *aux = head;
 
     // Check for empty list.
-    if (head == NULL) {std::cout << "List empty" << std::endl; return;}
+    if (head == NULL) {std::cout << "List empty" << std::endl;}
 
     // Traverse the list.
     while (aux != NULL)
@@ -55,6 +56,8 @@ void EnemySpawner::print_enemy_list()
 
         aux = aux->next;
     }
+
+    return aux;
 }
 
 void EnemySpawner::spawn_enemies(RenderTarget &target)
@@ -74,7 +77,7 @@ void EnemySpawner::spawn_enemies(RenderTarget &target)
 
 void EnemySpawner::move_enemies(RenderWindow *window)
 {
-    Enemy* aux = head;
+    Enemy *aux = head;
 
     // Check for empty list.
     if (head == NULL) {std::cout << "List empty" << std::endl; return;}
@@ -86,4 +89,14 @@ void EnemySpawner::move_enemies(RenderWindow *window)
         window->display();
         aux = aux->next;
     }
+}
+
+void EnemySpawner::setSize(int sizex)
+{
+    this->size = sizex;
+}
+
+int EnemySpawner::getSize()
+{
+    return this->size;
 }

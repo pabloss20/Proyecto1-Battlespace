@@ -4,14 +4,14 @@
 
 Game::Game()
 {
-
     // Init texture
     player_texture.loadFromFile("../Assets/player.png");
     bullet_texture.loadFromFile("../Assets/bullet.png");
 
     // Init player
     player = new Player(&this->player_texture, &bullet_texture);
-    this->enemySpawner.create_enemy(10);
+
+    enemySpawner = new EnemySpawner();
 }
 
 void Game::start()
@@ -28,6 +28,20 @@ void Game::start()
 
     background_sprite.setTexture(background);
 
+    Sprite sprite;
+
+    enemySpawner->create_enemy(5);
+    int limit = enemySpawner->getSize();
+
+    for (int i = 0; i < limit; i++)
+    {
+
+    }
+    std::cout << limit;
+
+    //enemy = enemySpawner->print_enemy_list();
+    //enemy->draw(window);
+
     while (window.isOpen())
     {
         Event event;
@@ -40,8 +54,8 @@ void Game::start()
         window.draw(background_sprite);
         this->draw(&window);
         this->update(&window);
-        enemySpawner.spawn_enemies(window);
-        enemySpawner.move_enemies(&window);
+        //enemySpawner->spawn_enemies(window);
+        //enemySpawner->move_enemies(&window);
         window.display();
     }
 }

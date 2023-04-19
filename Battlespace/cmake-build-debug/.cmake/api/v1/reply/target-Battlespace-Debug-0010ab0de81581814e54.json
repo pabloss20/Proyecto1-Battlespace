@@ -265,7 +265,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "Headers/Lista.h",
+			"path" : "Headers/BulletSPawner.h",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -304,7 +304,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Logic/Lista.cpp",
+			"path" : "Logic/BulletSpawner.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

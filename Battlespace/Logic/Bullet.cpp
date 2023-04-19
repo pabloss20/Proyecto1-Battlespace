@@ -30,3 +30,13 @@ void Bullet::move()
 {
     this->sprite.move(this->max_velocity.x, this->max_velocity.y);
 }
+
+void Bullet::setDamage(int damagex)
+{
+    this->damage = damagex;
+}
+
+int Bullet::getDamage()
+{
+    return this->damage;
+}

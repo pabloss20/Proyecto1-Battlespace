@@ -16,11 +16,15 @@ public:
     void create_enemy(int);
     void insert_enemy(Texture *texture, int, int, int, int, int);
     void delete_enemy(int);
-    void print_enemy_list();
+    Enemy * print_enemy_list();
     void spawn_enemies(RenderTarget &target);
     void move_enemies(RenderWindow *window);
 
     void update(Vector2u window_bounds);
+
+    int size;
+    void setSize(int);
+    int getSize();
 
 private:
 
